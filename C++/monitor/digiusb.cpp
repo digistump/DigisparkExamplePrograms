@@ -100,7 +100,7 @@ int result = 0;
 
     topwin = subwin(w, 1, COLS, 0, 0);
 
-    childwin = subwin(w, LINES-4, COLS, 2, 0);
+    childwin = subwin(w, LINES-3, COLS, 2, 0);
     inputwin = subwin(w, 1, COLS, LINES-1, 0);
     scrollok(childwin, true);
 
@@ -186,19 +186,24 @@ int result = 0;
 		        {
 			        if(thechar != 4){
 			        	if(thechar=='\n'){
+                  int y, x;
+                  getyx(childwin, y, x);
 
-    							int y, x;
-    							getyx(childwin, y, x);
-    							result = wmove(childwin, y + 1, x);
+                  if(y==LINES-4)
+                    wscrl(childwin,1);
+                  else
+    							 result = wmove(childwin, y + 1, x);
 			        	}
-			        
-			          	waddch(childwin, thechar);
+			         else
+			           waddch(childwin, thechar);
+                
 			          
-			          //printf("\"%c\"\n", thechar);
+		
 			        }
 		        }
 		      }
 		      wrefresh(childwin);
+          refresh();
 
 		}
 
