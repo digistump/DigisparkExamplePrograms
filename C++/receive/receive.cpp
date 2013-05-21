@@ -117,7 +117,8 @@ int main (int argc, char **argv)
             if(thechar == '\n')
               break;
           }
-          printf("%c", thechar);
+          if(thechar != 4)
+            printf("%c", thechar);
 
           i++;
           if(i>=charsToRead && charsToRead>0)

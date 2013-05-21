@@ -1,12 +1,12 @@
 
 ifeq ($(shell uname), Linux)
 	USBFLAGS = `libusb-config --cflags`
-	USBLIBS = `libusb-config --libs`  -lncurses
+	USBLIBS = `libusb-config --libs` -lncurses
 	EXE_SUFFIX =
 	OSFLAG = -D LINUX
 else ifeq ($(shell uname), Darwin)
 	USBFLAGS = `libusb-config --cflags`
-	USBLIBS = libusb-0.1.4.dylib  -lncurses
+	USBLIBS = libusb-0.1.4.dylib 
 	EXE_SUFFIX =
 	OSFLAG = -D MAC_OS -D_DARWIN_USE_64_BIT_INODE=1
 else

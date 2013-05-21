@@ -194,19 +194,26 @@ int result = 0;
                   else
     							 result = wmove(childwin, y + 1, x);
 			        	}
-			         else
+			         else{
 			           waddch(childwin, thechar);
+
+               }
                 
 			          
 		
 			        }
 		        }
+            usleep(100000);
 		      }
 		      wrefresh(childwin);
           refresh();
 
 		}
-
+    #if defined WIN
+    Sleep(100);
+    #else
+    usleep(100000);
+    #endif
 
 
 	}
