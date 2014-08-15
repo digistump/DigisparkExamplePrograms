@@ -1,4 +1,4 @@
-#/usr/bin/python
+#!/usr/bin/python
 
 #
 # Written for PyUSB 1.0 (w/libusb 1.0.3)
