@@ -17,7 +17,7 @@ else
 endif
 
 LIBS    = $(USBLIBS)
-CFLAGS  = $(USBFLAGS) $(LIBS) -O -g $(OSFLAG)
+CFLAGS  = $(USBFLAGS) $(LIBS) -O $(OSFLAG)
 
 CC=	g++
 PROGRAM= digiusb$(EXE_SUFFIX)
@@ -26,7 +26,7 @@ SOURCE= digiusb.cpp
 all: $(PROGRAM)
 
 $(PROGRAM): $(SOURCE)
-	$(CC) $(CFLAGS) -o $(PROGRAM) $(SOURCE) $(USBLIBS)
+	$(CC) $(CFLAGS) -s -o  $(PROGRAM) $(SOURCE) $(USBLIBS)
 
 clean:
 	rm -f $(PROGRAM) *.o
