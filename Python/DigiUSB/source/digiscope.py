@@ -105,7 +105,7 @@ class GraphFrame(wx.Frame):
         self.volts.SetFont(font)
 
         self.hbox1.Add(self.volts, border=5, flag=wx.ALL | wx.ALIGN_CENTER_VERTICAL)
-        self.hbox1.AddSpacer([100,1])
+        self.hbox1.Add(100,1)
         self.hbox1.Add(self.pause_button, border=5, flag=wx.ALL | wx.ALIGN_CENTER_VERTICAL)
 
         self.vbox = wx.BoxSizer(wx.VERTICAL)
@@ -123,7 +123,10 @@ class GraphFrame(wx.Frame):
         self.fig = Figure((16.0, 6.0), dpi=self.dpi)
 
         self.axes = self.fig.add_subplot(111)
-        self.axes.set_axis_bgcolor('black')
+        if hasattr(self.axes, 'set_facecolor'):
+            self.axes.set_facecolor('black')
+        else:
+            self.axes.set_axis_bgcolor('black')
         self.axes.set_title('Digispark Scope', size=8)
      
         
